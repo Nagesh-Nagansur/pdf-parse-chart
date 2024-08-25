@@ -70,6 +70,4 @@ def read_from_mongo():
     data = list(collection.find())
     # Convert the data to a pandas DataFrame
     df = pd.DataFrame(data)
-
-    import pdb 
-    pdb.set_trace()
+    return df 
