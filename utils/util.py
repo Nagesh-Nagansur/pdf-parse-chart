@@ -1,4 +1,5 @@
 import json
+import pandas as pd
 from pymongo import MongoClient,UpdateOne
 from langchain_community.document_loaders import PDFPlumberLoader
 
@@ -66,5 +67,9 @@ def read_from_mongo():
     client = MongoClient(connection_string)  # Replace with your MongoDB URI
     db = client["bank_statements"]  # Replace with your database name
     collection = db["statement"]  # Replace with your collection name
-    data = collection.find()
-    return data
+    data = list(collection.find())
+    # Convert the data to a pandas DataFrame
+    df = pd.DataFrame(data)
+
+    import pdb 
+    pdb.set_trace()

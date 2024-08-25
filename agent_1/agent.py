@@ -1,7 +1,6 @@
 import json 
 from langchain_groq import ChatGroq
 from agent_1.prompts.prompt import system_prompt
-from utils.util import pdf_reader
 from langchain.prompts import ChatPromptTemplate
 
 
