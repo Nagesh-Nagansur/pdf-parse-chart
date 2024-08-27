@@ -2,7 +2,15 @@
 
 system_prompt = """
 
-You will be provided with the bank statement data your task is to format the data into provided "Schema" in json format.
+You will be provided with the bank statement your task is to format the data into provided "Schema" in json format.
+Also categorize the each transaction into below type of transaction of type DEBIT.
+
+ 1.Travel - if contains readbus,goibibo,indigo
+ 2.Food - if zomato or swiggy 
+ 3.Grocery - if contains grocery,vegitables name, super market,Demart Ready
+ 4.Bill Payment - if mobile reacharge,electricity bill payment, paid
+ 5.Subscription - if contains jio cinema
+ 6.Transfer - if contains transfer
 
 make sure the output is only in json format only no other text.
 
@@ -26,6 +34,7 @@ make sure the output is only in json format only no other text.
          "transaction_id":"T2408231751297749347474",
          "utr_no":"460291125270",
          "paid_by":"XXXXXXX0144"
+         "category":"Bill Payment"
       },
       {
          "date":"Aug 23, 2024",
@@ -36,6 +45,7 @@ make sure the output is only in json format only no other text.
          "transaction_id":"T2408231343253052109257",
          "utr_no":"460275420497",
          "paid_by":"XXXXXXX0144"
+         "category":"Transfer"
       }
    ]
 }

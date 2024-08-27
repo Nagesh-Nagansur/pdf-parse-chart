@@ -21,6 +21,6 @@ def load_schema_to_mongodb(page):
     
     prompt = prompt_template.format_messages(system_prompt=system_prompt, user_input=page)
     
-    result = llm.invoke(prompt)   
-
+    result = llm.invoke(prompt)
+    
     return result

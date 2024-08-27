@@ -1,6 +1,6 @@
 import json
 from agent_1.agent import load_schema_to_mongodb
-from utils.util import insert_into_mongo, pdf_reader, insert_or_update_into_mongo
+from utils.util import insert_into_mongo, pdf_reader, insert_or_update_into_mongo, read_from_mongo
 from charts.chart import create_bar_chart
 
 
@@ -14,5 +14,8 @@ if __name__ == "__main__":
         dict_data["account_number"] = "8180933388"
         insert_or_update_into_mongo(dict_data)
 
-    create_bar_chart()
+    data = read_from_mongo()
+
+    transactions = data.get("transactions", []).to_dict()[0]
+    create_bar_chart(transactions)
 
